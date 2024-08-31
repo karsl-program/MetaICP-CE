@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}} - MetaICP | 元备</title>
+    <link rel="stylesheet" type="text/css" href="/assets/global.css" />
+    <meta name="keywords" content="元备,元ICP备,MetaICP,元备案,元ICP备案">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="元ICP备案">
+    <meta property="og:title" content="元ICP备案">
+    <meta property="og:description" content="欢迎各位站长，快来与小伙伴们一起申请一个元ICP备案号吧！">
+    <meta name="description" content="欢迎各位站长，快来与小伙伴们一起申请一个元ICP备案号吧！">
+    {{if eq .isnotice 1}}
+        <script src="/assets/onload.js"></script>
+    {{end}}
+</head>
+
+<body>
+    <div class="app">
+        <h1 class="header text" style="margin-top: 2.5rem;">MetaICP <span class="text-base">| 元 ICP 备案</span></h1>
+        <div>
+            <button style="width: calc(100% - 5rem); left: 2.5rem; text-align: center; position: absolute; margin-top: 2rem;" class="text" onclick="location.href='select/0'"><h2>查询 <span class="text-sm">Select</span> >></h2></button>
+            <button style="width: calc(100% - 5rem); left: 2.5rem; text-align: center; position: absolute; margin-top: 9rem;" class="text" onclick="location.href='join'"><h2>加入 <span class="text-sm">Join</span> >></h2></button>    
+            <button style="width: calc(100% - 5rem); left: 2.5rem; text-align: center; position: absolute; margin-top: 16rem;" class="text" onclick="window.open('mailto:{{.mail}}')"><h2>更改 <span class="text-sm">Change</span> >></h2></button>
+            <button style="width: calc(100% - 5rem); left: 2.5rem; text-align: center; position: absolute; margin-top: 23rem;" class="text" onclick="location.href='about'"><h2>关于 <span class="text-sm">About</span> >></h2></button>    
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <h2>公告</h2>
+        <p>{{.notice}}</p>
+        <button onclick="hidePopup()" id="noticeBtn">我已知晓</button>
+    </div>
+    <script src="/assets/index.js"></script>
+</body>
+
+</html>

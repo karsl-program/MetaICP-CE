@@ -1,0 +1,170 @@
+@font-face {
+    font-family: 'HanTang';
+    src: url(/assets/HanTang.woff2);
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+html {
+    background: url(/assets/bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body {
+    transition: all 0.3s;
+}
+
+* {
+    font-family: 'HanTang', Ubuntu;
+    scrollbar-width: 0;
+}
+
+.text {
+    color: #fff;
+}
+
+.app {
+    position: fixed;
+    background-color: rgb(0, 0, 0, 0.05);
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    margin: 0;
+    overflow: scroll;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.4s;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+
+.header {
+    text-align: center;
+}
+
+.text-base {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.text-sm {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+@keyframes change{
+    from {
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0;
+    } to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.popup {
+    color: #000;
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: fit-content;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 9999;
+    transition: all 0.4s;
+    background-color: rgb(255, 255, 255, 0.5);
+    overflow-y: scroll;
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+@media screen and (max-width: 720px) {
+    .popup {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .app {
+        width: 80vw;
+        max-width: 50rem;
+        height: calc(100% - 4rem);
+    }
+}
+
+button {
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition: all 0.3s;
+    outline: none;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(0, 0, 0, 0.1);
+}
+
+.joininput {
+    margin: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 0;
+    height: 30px;
+    outline: none;
+    border: none;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgb(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 5px;
+    transition: all 0.2s;
+}
+
+.joininput:focus {
+    background-color: rgb(0, 0, 0, 0.01);
+    box-shadow: none;
+}
+
+table {
+    padding: 1rem;
+    border: 1px solid #fff;
+    font-size: 18px;
+    width: 50vw;
+    max-width: 40rem;
+    text-align: center;
+    line-height: 2;
+    height: fit-content;
+    overflow-x: scroll;
+}
+
+a {
+    color: #fff;
+}

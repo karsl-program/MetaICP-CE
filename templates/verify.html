@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}} - MetaICP | 元备</title>
+    <link rel="stylesheet" type="text/css" href="/assets/global.css" />
+    <meta name="keywords" content="元备,元ICP备,MetaICP,元备案,元ICP备案">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="元ICP备案">
+    <meta property="og:title" content="元ICP备案">
+    <meta property="og:description" content="欢迎各位站长，快来与小伙伴们一起申请一个元ICP备案号吧！">
+    <meta name="description" content="加入元ICP备，一起交流与成长！">
+</head>
+
+<body>
+    <div class="app">
+        <h1 class="header text" style="margin-top: 2.5rem;">Join <span class="text-base">| 加入</span></h1>
+        <div style="margin-top: 1rem; position: absolute; left: 50%; transform: translate(-50%, 0);">
+            <form class="text" action="/submit" method="post">
+                <h3>{{.message}}</h3>
+                {{if eq .isok 1}}
+                    邮箱：<input type="text" class="joininput" name="email" value="{{.email}}"><br>
+                    验证码：<input type="text" class="joininput" name="verify"><br>
+                <br>
+                <button type="submit" style="margin-bottom: 2rem;" class="text">提交</button>
+                {{end}}
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

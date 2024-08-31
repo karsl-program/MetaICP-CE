@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}} - MetaICP | 元备</title>
+    <link rel="stylesheet" type="text/css" href="/assets/global.css" />
+    <meta name="keywords" content="元备,元ICP备,MetaICP,元备案,元ICP备案">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="元ICP备案">
+    <meta property="og:title" content="元ICP备案">
+    <meta property="og:description" content="欢迎各位站长，快来与小伙伴们一起申请一个元ICP备案号吧！">
+    <meta name="description" content="欢迎各位站长，快来与小伙伴们一起申请一个元ICP备案号吧！">
+
+    <script>
+        function allow(id) {
+            data = {
+                id: id,
+                pwd: "{{.pwd}}",
+            }
+            fetch("/admin/allow", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(data)})
+                .then((response) => response.text())
+                .then((data) => {console.log(data); location.reload()});
+
+        }
+
+        function ban(id) {
+            data = {
+                id: id,
+                pwd: "{{.pwd}}",
+            }
+            fetch("/admin/ban", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(data)})
+                .then((response) => response.text())
+                .then((data) => {console.log(data); location.reload()});
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <h1 class="header text" style="margin-top: 2.5rem;">Admin <span class="text-base">| 管理</span></h1>
+        <div style="margin-top: 1rem; position: absolute; left: 50%; transform: translate(-50%, 0);">
+            {{range $index, $value := .data}}
+                <h4 class="text">备案号：{{$value.Id}}</h4>
+                <h4 class="text">站名：{{$value.SiteName}}</h4>
+                <h4 class="text">域名：{{$value.Site}}</h4>
+                <h4 class="text">站长：{{$value.SiteUser}}</h4>
+                <h4 class="text">邮箱：{{$value.Email}}</h4>
+                <h4 class="text">介绍：{{$value.About}}</h4>
+                {{if eq $value.Active false}}
+                    <button class="text" style="margin-right: 0.5rem; margin-bottom: 0.5rem;" onclick="allow('{{$value.Id}}')">允许</button>
+                    <button class="text" onclick="ban('{{$value.Id}}')">拒绝</button>
+                {{end}}
+                <br><hr><br>
+            {{end}}
+        </div>
+    </div>
+</body>
+
+</html>

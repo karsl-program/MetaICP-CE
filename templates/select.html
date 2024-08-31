@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}} - MetaICP | 元备</title>
+    <link rel="stylesheet" type="text/css" href="/assets/global.css" />
+    <meta name="keywords" content="元备,元ICP备,MetaICP,元备案,元ICP备案">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="元ICP备案">
+    <meta property="og:title" content="元ICP备案">
+    <meta property="og:description" content="欢迎各位站长，快来与小伙伴们一起申请一个元ICP备案号吧！">
+    <meta name="description" content="查询小伙伴们的元备！">
+</head>
+
+<body>
+    <div class="app">
+        <h1 class="header text" style="margin-top: 2.5rem;">Select <span class="text-base">| 查询</span></h1>
+        <div style="margin-top: 1rem; position: absolute; left: 50%; transform: translate(-50%, 0); line-height: 2;" class="text">
+            {{if eq .flag 1}}
+            <table>
+                <tr>
+                    <td>备案号</td>
+                    <td>{{.id}}</td>
+                </tr>
+                <tr>
+                    <td>站名</td>
+                    <td>{{.sitename}}</td>
+                </tr>
+                <tr>
+                    <td>站长</td>
+                    <td>{{.siteuser}}</td>
+                </tr>
+                <tr>
+                    <td>站点</td>
+                    <td><a href="http://{{.domain}}">{{.domain}}</a></td>
+                </tr>
+                <tr>
+                    <td>介绍</td>
+                    <td>{{.about}}</td>
+                </tr>
+            </table>
+            {{end}}
+            {{if eq .flag 0}}
+                <h3>该备案号正在审核中，请在网站页面/页脚悬挂以下信息：</h3>
+                <h4>&lt;a href="{{.maindomain}}/select/{{.id}}"&gt;元ICP备{{.id}}号&lt;/a&gt;</h4>
+            {{end}}
+            {{if eq .flag -1}}
+                <h3>该备案号不存在！</h3>
+            {{end}}
+        </div>
+    </div>
+</body>
+
+</html>
